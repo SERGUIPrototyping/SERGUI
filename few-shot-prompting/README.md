@@ -27,6 +27,8 @@ user interface description: "music player with list of songs"
 
 Next, we show a detailed example for the abstract textual GUI representation that we create on the basis of the original GUI hierarchy data, but with the focus on the features and a rough layout. First, we show the actual GUI as a screenshot in the following.
 
+<img src="https://raw.githubusercontent.com/SERGUIPrototyping/SERGUI/main/few-shot-prompting/18219.jpg" width="30%">
+
 Second, we show the part of the few-shot prompt including the abstract GUI representation.
 
 ```
