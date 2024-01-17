@@ -10,3 +10,4 @@ The supplementary material of our submission to the RE 2024 conference is struct
 - **user_study**: This directory contains all the datasets used for the evaluation of *SERGUI* on the basis of the conducted user study
 - **webapp**: This directoy contains the prototypical implementation of our *SERGUI* approach based on a Django web application
 
+<img src="https://raw.githubusercontent.com/SERGUIPrototyping/SERGUI/main/user_study/screenshot/tool_screenshot.png" width="100%">
