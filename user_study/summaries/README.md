@@ -1,0 +1,3 @@
+# User Study Application Summaries
+
+Each of the 12 numbered directories contains the application prototype summaries (in the form of a PDF) created by the participants during the user study. In particular, each participant directory contains two sub directories for the two tasks the participants worked on. For each task, three individual summaries were created for each of the three GUIs in the tasks.

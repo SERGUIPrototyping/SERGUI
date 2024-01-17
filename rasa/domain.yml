@@ -1,0 +1,281 @@
+version: "3.1"
+
+intents:
+  - intent_start
+  - confirm
+  - deny
+  - okay
+  - dontknow
+  - activate_dfb
+  - activate_afb
+  - already_specified
+  - select_feature:
+      use_entities:
+        - current_selected_gui_id
+  - restart_gui
+  - gui_selected_confirm
+  - gui_selected_cancel
+  - finish_prototype
+  - task_selection:
+      use_entities:
+        - task_id
+  - gui_number_selection:
+      use_entities:
+        - gui_number
+  - keep_previous_gui
+  - gui_reselected:
+      use_entities:
+        - current_selected_gui_id
+  - gui_selected:
+      use_entities:
+        - current_selected_gui_id
+        - current_transition
+        - current_wireframe
+
+entities:
+  - current_selected_gui_id
+  - current_transition
+  - current_wireframe
+  - task_id
+  - gui_number
+
+responses:
+  utter_introduction_1:
+    - text: "Welcome, I am SERGUI-Bot, and I will help you with building an initial user interface prototype of your app quickly. I will guide
+    you through the process and assist you with recommendations. Based on your text descriptions of the app requirements,
+    I will find the best matching user interfaces for you."
+  utter_introduction_2:
+    - text: "Right to the chat you can find the work bench, here I will present relevant information to you, for example,
+    I will show a list of matching user interfaces, or show you feature recommendations for the user interface."
+  utter_introduction_general_questions:
+    - text: "First, I will ask you some general questions about the app you want to be developed."
+  utter_submit_general_questions_form:
+    - text: "Now we will go through each GUI of your app individually. For each GUI, you can formulate the requirements,
+    afterwards we recommend potentially relevant GUIs for your query. You can also search for specific features afterwards. We will show
+    the best matching GUIs to you based on your requirements, although there might be no GUI that matches all your needs. You
+    can select the GUI that you think fits best, then additional potentially relevant features will be presented to you to choose from.
+    Features that are not available in your selected GUI will be saved additionally in the prototype."
+  utter_ask_scoring_nlr_placeholder:
+    - text: "Please briefly describe the requirements for your next GUI."
+  utter_ask_scoring_afb_feature_query:
+    - text: "Please briefly name the required feature."
+  utter_explain_dfb:
+    - text: "Based on your GUI selection and features we now will recommend additionally potentially relevant GUI features. For each feature,
+    we will show you the top GUIs that may contain that feature. You can either directly select a relevant visualization
+    or give general feedback if the feature is relevant or not for you. We will use your feedback on the different features to find better matching GUIs and the features will also be saved addtionally in the prototype."
+  utter_explain_afb:
+    - text: "You can specify a GUI feature that you need and we will try to find GUIs containing that
+    feature and ask for your feedback. You can either pick a specific GUI containing that feature or give negative feedback if none of the features
+    shown in the GUIs is relevant for you. Please only formulate one GUI feature at a time."
+  utter_explain_editing:
+    - text: "You can preview your GUI prototype on the right. Here, you can also remove features and
+     entire GUIs by left-clicking on the feature, and change the text by double clicking on the respective features and pressing enter afterwards."
+  utter_ask_finish_prototype:
+    - text: "Okay, we finished the GUI. How do you want to proceed?"
+  utter_finished_prototype:
+    - text: "Okay, we finsihed the overall prototype. The GUI prototype will be saved."
+  explain_short_wait_time:
+    - text: "I am searching for other potentially relevant features for you. Please wait a moment."
+
+slots:
+  curr_selected_gui_id:
+    type: text
+    mappings:
+      - type: custom
+  scoring_nlr_placeholder:
+    type: text
+    mappings:
+      - type: custom
+  scoring_dfb_placeholder:
+    type: any
+    mappings:
+      - type: custom
+  scoring_dfb_feature_questions:
+    type: any
+    mappings:
+      - type: custom
+  scoring_dfb_curr_feature_question:
+    type: any
+    mappings:
+      - type: custom
+  scoring_dfb_curr_idx:
+    type: float
+    initial_value: 0
+    mappings:
+      - type: custom
+  scoring_dfb_iteration_idx:
+    type: float
+    initial_value: 0
+    mappings:
+      - type: custom
+  scoring_afb_feature_query:
+    type: text
+    mappings:
+      - type: custom
+  scoring_afb_placeholder:
+    type: any
+    mappings:
+      - type: custom
+  scoring_afb_curr_idx:
+    type: float
+    initial_value: 0
+    mappings:
+      - type: custom
+  scoring_afb_curr_feature:
+    type: any
+    mappings:
+      - type: custom
+  scoring_afb_gui_scores:
+    type: any
+    mappings:
+      - type: custom
+  scoring_afb_ranked_gui_features:
+    type: any
+    mappings:
+      - type: custom
+  scoring_afb_nr_gui_idxs:
+    type: any
+    mappings:
+      - type: custom
+  aspect_guis:
+    type: any
+    mappings:
+      - type: custom
+  scores:
+    type: any
+    mappings:
+      - type: custom
+  score_names:
+    type: any
+    mappings:
+      - type: custom
+  filter_gui_idxs:
+    type: any
+    mappings:
+      - type: custom
+  rankings:
+    type: any
+    mappings:
+      - type: custom
+  interaction:
+    type: any
+    mappings:
+      - type: custom
+  showed_explanation_dfb:
+    type: bool
+    mappings:
+      - type: custom
+  showed_explanation_afb:
+    type: bool
+    mappings:
+      - type: custom
+  showed_explanation_editing:
+    type: bool
+    mappings:
+      - type: custom
+  collected_feature_descs:
+    type: any
+    mappings:
+      - type: custom
+  ranking_history:
+    type: any
+    mappings:
+      - type: custom
+  curr_annotation_gui_id:
+    type: any
+    mappings:
+      - type: custom
+  user_study_task_placeholder:
+    type: any
+    mappings:
+      - type: custom
+  user_study_gui_number_placeholder:
+    type: any
+    mappings:
+      - type: custom
+  gui_uuid_mapping:
+    type: any
+    mappings:
+      - type: custom
+  additional_textual_requirements:
+    type: any
+    mappings:
+      - type: custom
+
+forms:
+
+  scoring_nlr_form:
+    required_slots:
+      - user_study_gui_number_placeholder
+      - scoring_nlr_placeholder
+
+  scoring_dfb_form:
+    required_slots:
+      - scoring_dfb_placeholder
+      - scoring_dfb_feature_questions
+      - scoring_dfb_curr_feature_question
+      - scoring_dfb_curr_idx
+      - scoring_dfb_iteration_idx
+      - aspect_guis
+      - score_names
+      - scores
+      - collected_feature_descs
+      - curr_selected_gui_id
+      - ranking_history
+      - additional_textual_requirements
+
+  scoring_afb_form:
+    required_slots:
+      - scoring_afb_feature_query
+      - scoring_afb_placeholder
+      - scoring_afb_curr_idx
+      - scoring_afb_curr_feature
+      - scoring_afb_ranked_gui_features
+      - scoring_afb_gui_scores
+      - scoring_afb_nr_gui_idxs
+      - aspect_guis
+      - score_names
+      - scores
+      - collected_feature_descs
+      - ranking_history
+      - additional_textual_requirements
+
+  user_study_task_form:
+    required_slots:
+      - user_study_task_placeholder
+
+
+actions:
+  - action_start
+  # Actions scoring nlr form
+  - validate_scoring_nlr_form
+  - action_ask_user_study_gui_number_placeholder
+  - scoring_nlr_form_submit
+  - scoring_nlr_form_reset
+  # Actions scoring dfb form
+  - validate_scoring_dfb_form
+  - action_ask_scoring_dfb_placeholder
+  - scoring_dfb_form_submit
+  - scoring_dfb_form_reset
+  - scoring_dfb_form_iteration_reset
+  # Actions scoring afb form
+  - validate_scoring_afb_form
+  - action_ask_scoring_afb_placeholder
+  - scoring_afb_form_submit
+  - scoring_afb_form_reset
+  # Reset action for gui scores
+  - meta_ranker_scores_reset
+  # User study task form
+  - validate_user_study_task_form
+  - action_ask_user_study_task_placeholder
+  # Other stuff
+  - gui_reqs_summary
+  - ask_finish_prototype
+  - finished_prototype
+  - show_explanation_dfb
+  - show_explanation_afb
+  - action_explain_short_wait_time
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true

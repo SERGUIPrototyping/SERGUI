@@ -1,0 +1,43 @@
+version: "3.1"
+
+nlu:
+- intent: confirm
+  examples: |
+    - yes
+    - definitly
+    - of course
+    - okay
+    - ok
+    - yes that is good
+    - yes please
+    - yep
+    - that sounds good
+    - correct
+    - indeed
+    - y
+    - yeah
+    - absolutely
+
+- intent: deny
+  examples: |
+    - no
+    - n
+    - never
+    - I don't think so
+    - don't like that
+    - no way
+    - no no
+    - absolutely not
+    - nope
+
+- intent: dontknow
+  examples: |
+    - dont know
+    - do not know
+    - don't know
+    - i have no clue
+    - no idea
+    - not sure
+    - i am not sure at all
+    - no clue really
+    - i don't know

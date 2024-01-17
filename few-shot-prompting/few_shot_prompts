@@ -1,0 +1,113 @@
+You are given a short description of graphical user interface of a mobile app, an user interface that the has already been selected (as a list of ui components) and a list of features the user already selected.
+    Your task is to recommend the top 30 additional user interface features (as keywords) that are relevant for the user. Please thorougly check the features contained in the already selected user interface and the already found features to avoid repeating features in your recommendation.
+    For your feature recommendations, focus on the specific user interface given to you and do not recommend features that are too general to the entire app (e.g. FAQs, customer support or help). A features should be a single user interface component. The result should be in the format of a python list of strings. 
+    Make the feature descriptions as general as possible (e.g. instead of "report comment" just "report" or instead of "product ratings" just "ratings"). If possible use only a single word to name the feature.
+
+    user interface description: "login"
+
+    already selected user interface:
+    - Layout
+        - (Image)
+    - Layout
+        - "" (Text Input) (login username edit)
+    - Layout
+        - "Humana Password" (Text Input) (login password edit)
+    - Layout
+        - "Remember my username" (Button) (login remember username switch)
+    - Layout
+        - "login" (Button) (login)
+    - Layout
+        - "Forgot" (Label)
+        - "USERNAME" (Button) (login recover username)
+        - "or" (Label)
+        - "PASSWORD" (Button) (login recover password)
+        - "?" (Label)
+    - Layout
+        - "register" (Button) (login register)
+
+
+    already found features:
+    - facebook (button)
+    - remember me (checkbox)
+
+    recommended features:["google", "twitter", "logo", "password strength", "privacy and legal statements", "skip", "terms & conditions"]
+
+You are given a short description of graphical user interface of a mobile app, an user interface that the has already been selected (as a list of ui components) and a list of features the user already selected.
+    Your task is to recommend the top 30 additional user interface features (as keywords) that are relevant for the user. Please thorougly check the features contained in the already selected user interface and the already found features to avoid repeating features in your recommendation.
+    For your feature recommendations, focus on the specific user interface given to you and do not recommend features that are too general to the entire app (e.g. FAQs, customer support or help). A features should be a single user interface component. The result should be in the format of a python list of strings. 
+    Make the feature descriptions as general as possible (e.g. instead of "report comment" just "report" or instead of "product ratings" just "ratings"). If possible use only a single word to name the feature.
+
+    user interface description: "music player with list of songs"
+
+    already selected user interface:
+    - Layout
+        - "close" (Icon) (switch)
+        - "Queue" (Button) (playlist Info)
+        - "more" (Icon) (ics)
+    - Layout
+        - (Image)
+    - Layout
+        - (Image) (art list)
+    - List Item
+        - "1." (Label) (number)
+        - "2017_01_18 07:02" (Label) (title)
+        - "0:05" (Label) (duration)
+        - "NRJ Hits 128mp3" (Label) (artist)
+        - (Image) (rating)
+    - List Item
+        - "2." (Label) (number)
+        - "AstonMartinDBS" (Label) (title)
+        - "0:03" (Label) (duration)
+        - (Image) (rating)
+    - List Item
+        - "3." (Label) (number)
+        - "Dont Give Up (Anthem) (Prod. Sinima Beats)" (Label) (title)
+        - "4:43" (Label) (duration)
+        - "Ms. White" (Label) (artist)
+        - (Image) (rating)
+    - List Item
+        - "4." (Label) (number)
+        - "newAccompaniment" (Label) (title)
+        - "0:33" (Label) (duration)
+        - "<unknown>" (Label) (artist)
+        - (Image) (rating)
+    - List Item
+        - "5." (Label) (number)
+        - "voice" (Label) (title)
+        - "0:33" (Label) (duration)
+        - "<unknown>" (Label) (artist)
+        - (Image) (rating)
+    - Layout
+        - "repeat" (Icon) (repeat)
+        - (Image) (shuffle)
+        - "av rewind" (Icon) (previous)
+        - (Image) (play)
+        - "skip next" (Icon) (next)
+        - "1:49" (Button) (current time)
+        - "4:43" (Label) (total time)
+    - Layout
+        - "more" (Icon) (add)
+        - "more" (Icon) (del)
+        - (Image) (playlists)
+        - "sliders" (Icon) (equalizer)
+
+
+    already found features:
+     - "share" (Icon) (share song ic)
+
+    recommended features:["volume control", "search bar", "song thumbnail", "download button", "like", "add to playlist", "song lyrics", "artist info", "album info", "genre tag", "play speed control", "audio quality option", "offline mode", "cast button", "radio mode", "podcast mode", "personalized recommendations", "new releases", "trending songs", "user profile", "notifications", "music categories", "song comments", "song reviews", "music visualizer", "history", "queue list"]
+
+You are given a short description of graphical user interface of a mobile app, an user interface that the has already been selected (as a list of ui components) and a list of features the user already selected.
+    Your task is to recommend the top 30 additional user interface features (as keywords) that are relevant for the user. Please thorougly check the features contained in the already selected user interface and the already found features to avoid repeating features in your recommendation.
+    For your feature recommendations, focus on the specific user interface given to you and do not recommend features that are too general to the entire app (e.g. FAQs, customer support or help). A features should be a single user interface component. The result should be in the format of a python list of strings. 
+    Make the feature descriptions as general as possible (e.g. instead of "report comment" just "report" or instead of "product ratings" just "ratings"). If possible use only a single word to name the feature.
+        
+    user interface description: "placeholder_nlr_query"
+
+    already selected user interface: 
+    placeholder_selected_gui
+
+    already found features: 
+    placeholder_features
+
+    recommended features:

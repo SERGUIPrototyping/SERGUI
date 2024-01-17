@@ -1,0 +1,123 @@
+version: "3.1"
+
+rules:
+
+- rule: Startup conversation
+  steps:
+  - intent: intent_start
+  - action: utter_introduction_1
+  - action: utter_introduction_2
+  - action: user_study_task_form
+  - active_loop: user_study_task_form
+
+- rule: Submit scoring user study task form
+  condition:
+  - active_loop: user_study_task_form
+  steps:
+  - action: user_study_task_form
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  - action: scoring_nlr_form
+  - active_loop: scoring_nlr_form
+
+
+- rule: Submit scoring nlr form
+  condition:
+  - active_loop: scoring_nlr_form
+  steps:
+  - action: scoring_nlr_form
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  - action: scoring_nlr_form_submit
+
+- rule: Submit top k feature annotation form
+  condition:
+  - active_loop: top_k_feature_annotation_form
+  steps:
+  - action: top_k_feature_annotation_form
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  - action: gui_reqs_summary
+
+- rule: Activate scoring dfb from
+  steps:
+  - intent: activate_dfb
+  - action: show_explanation_dfb
+  - action: scoring_dfb_form_iteration_reset
+  - action: scoring_dfb_form
+  - active_loop: scoring_dfb_form
+
+- rule: Submit scoring dfb form
+  condition:
+  - active_loop: scoring_dfb_form
+  steps:
+  - action: scoring_dfb_form
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  - action: scoring_dfb_form_submit
+
+- rule: Activate scoring afb from
+  steps:
+  - intent: activate_afb
+  - action: show_explanation_afb
+  - action: scoring_afb_form_reset
+  - action: scoring_afb_form
+  - active_loop: scoring_afb_form
+
+- rule: Submit scoring afb form
+  condition:
+  - active_loop: scoring_afb_form
+  steps:
+  - action: scoring_afb_form
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  - action: scoring_afb_form_submit
+
+- rule: Restart gui search by user
+  steps:
+  - intent: restart_gui
+  - action: meta_ranker_scores_reset
+  - action: scoring_nlr_form_reset
+  - action: scoring_gfb_form_reset
+  - action: scoring_dfb_form_reset
+  - action: scoring_afb_form_reset
+  - action: top_k_feature_annotation_reset
+  - action: scoring_nlr_form
+  - active_loop: scoring_nlr_form
+
+- rule: gui selected cancel
+  steps:
+  - intent: gui_selected_cancel
+  - action: ask_scoring_type
+
+- rule: Finish the overall prototyping process and start annotation
+  steps:
+  - intent: finish_prototype
+  - action: utter_finished_prototype
+
+- rule: Restart gui search by gui selected confirm
+  steps:
+  - intent: gui_selected_confirm
+  - action: ask_finish_prototype
+
+- rule: Restart gui search by gui selected
+  steps:
+  - intent: gui_selected
+  - action: show_explanation_dfb
+  - action: scoring_dfb_form
+  - active_loop: scoring_dfb_form
+
+- rule: Keep selected gui
+  steps:
+  - intent: keep_previous_gui
+  - action: gui_reqs_summary
+
+- rule: Reselected gui
+  steps:
+  - intent: gui_reselected
+  - action: gui_reqs_summary
