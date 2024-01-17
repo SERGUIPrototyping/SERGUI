@@ -6,6 +6,14 @@ In this section, we provide a detailed overview and example of the GUI prototypi
 
 First, the overall application and journey through the main part of the application is shown in a linear wireframe. In the following, we show an excerpt of the app requirements summary of the provided example. 
 
+<img src="https://raw.githubusercontent.com/SERGUIPrototyping/SERGUI/main/prototyping-artifact/app_requirements_summary_1.png" width="80%">
+
+<img src="https://raw.githubusercontent.com/SERGUIPrototyping/SERGUI/main/prototyping-artifact/app_requirements_summary_2.png" width="80%">
+
 ## B) GUI Summary
 
 Second, the summaries for individual GUIs are provided after the app requirements summary. Here, for each GUI included in the app requirements summary, potentially multiple additional pages are generated providing more detailed information about the GUI, the natural language requirement or description of the GUI, a collection of additional requirements (in the form of *aspect*-GUI visualizations) not captured by the main GUI selected by the user as the main representation for that type of GUI and additional natural language requirements, if the features were relevant to the user but no matching *aspect*-GUI visualizing of the GUI feature could be found.
+
+<img src="https://raw.githubusercontent.com/SERGUIPrototyping/SERGUI/main/prototyping-artifact/gui_summary_1.png" width="80%">
+
+<img src="https://raw.githubusercontent.com/SERGUIPrototyping/SERGUI/main/prototyping-artifact/gui_summary_2.png" width="80%">
